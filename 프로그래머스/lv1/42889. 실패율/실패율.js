@@ -13,7 +13,7 @@ function solution(N, stages) {
     }
     
     return failRate.map((val, idx) => { return {idx : idx + 1, val} })
-           .sort((a, b) => a.val < b.val ? 1 : a.val === b.val ? 0 : -1)
+           .sort((a, b) => b.val - a.val)
            .map((obj) => obj.idx);
     
 }
