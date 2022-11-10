@@ -5,17 +5,19 @@ function solution(board, moves) {
     
     for (let i = 0 ; i < moves.length ; i++) {
         for (let j = 0 ; j < board.length ; j++) {
-            if (board[j][moves[i] - 1]) {
-                stack.push(board[j][moves[i] - 1]);
-                board[j][moves[i] - 1] = 0;
-                if (stack[stack.length - 1] === stack[stack.length - 2]) {
-                    cnt++;
-                    stack.pop();
+            let move = moves[i] - 1;
+            if (board[j][move]) {
+                if (stack[stack.length - 1] === board[j][move]) {
+                    cnt += 2;
                     stack.pop();
                 }
+                else {
+                    stack.push(board[j][move]);
+                }
+                board[j][move] = 0;
                 break;
             }
         }
     }
-    return cnt * 2;
+    return cnt;
 }
