@@ -8,4 +8,5 @@ function solution(new_id) {
         .slice(0, 15).replace(/[.]$/, '');
     
     return newId.length <= 2 ? newId.concat(newId.at(-1).repeat(3 - newId.length)) : newId;
+
 }
