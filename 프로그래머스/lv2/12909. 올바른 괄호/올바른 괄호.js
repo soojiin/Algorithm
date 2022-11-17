@@ -1,11 +1,10 @@
 function solution(s){
-    let stack = [];
-    
+    let sum = 0;
     for (let c of s) {
-        if ( c === "(" ) { stack.push(c); }
-        else if ( c === ")" && stack.length ) { stack.pop(); }
-        else if ( c === ")" && !stack.length ) { return false; }
+        sum += c === '(' ? 1 : -1;
+        if (sum < 0) {
+            return false;
+        }
     }
-    
-    return stack.length ? false : true ;
+    return sum === 0 ? true : false;
 }
