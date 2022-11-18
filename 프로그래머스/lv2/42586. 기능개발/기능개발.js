@@ -1,10 +1,6 @@
 function solution(progresses, speeds) {
     // queue
-    let days = [];
-    
-    progresses.forEach((el, idx) => {
-        days.push(Math.ceil((100 - el) / speeds[idx]))
-    });
+    let days = progresses.map((el, idx) => Math.ceil((100 - el) / speeds[idx]));
     
     let cur = days[0];
     let cnt = 1, res = [];
